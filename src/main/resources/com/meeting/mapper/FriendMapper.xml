@@ -3,10 +3,10 @@
 <mapper namespace="com.meeting.mapper.FriendMapper">
 
     <resultMap id="friendMap" type="com.meeting.pojo.Friend">
-        <result property="id" column="friendsKey" />
+        <result property="id" column="friendsKey"/>
         <result property="userId" column="userId"/>
         <association property="friendUser" javaType="com.meeting.pojo.UserInfo">
-            <id property="id" column="friendsId" />
+            <id property="id" column="friendsId"/>
             <result property="name" column="friendsName"/>
             <result property="phone" column="friendsPhone"/>
             <result property="sex" column="friendsSex"/>
@@ -14,7 +14,6 @@
             <result property="password" column="friendsPwd"/>
         </association>
     </resultMap>
-
     <select id="queryAllFriend" resultMap="friendMap">
         SELECT friends.id as friendsKey,
         friends.friend_id as friendsId,
