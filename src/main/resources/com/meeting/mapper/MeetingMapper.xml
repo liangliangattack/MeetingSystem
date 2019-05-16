@@ -1,16 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meeting.mapper.MeetingMapper">
+<!--    createByUser-->
 
-    <select id="">
-        SELECT meeting_title ,
+    <resultMap id="AllMeetingMap" type="com.meeting.pojo.Meeting">
+       <id property="id" column="meetingId"/>
+        <result property="meetingTitle" column="meeting_title"/>
+        <result property="meetingContent" column="meeting_content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="time" column="time"/>
+        <result property="path" column="path"/>
+        <result property="address" column="address"/>
+        <association property="createByUser" javaType="com.meeting.pojo.UserInfo">
+            <id property="id" column="createby_id" />
+            <result property="name" column="userName"/>
+        </association>
+
+<!--        private String meetingTitle;-->
+<!--        private String meetingContent;-->
+<!--        private Date createTime;-->
+<!--        private UserInfo createByUser;-->
+<!--        private String time;-->
+<!--        private String path;-->
+<!--        private String address;-->
+
+    </resultMap>
+    <select id="queryAllMeetings" resultMap="AllMeetingMap">
+        SELECT meeting.id as meetingId,
+        meeting_title ,
         meeting_content ,
         create_time ,
-        ime ,
+        time ,
         path ,
-        address
-        FROM meeting
-        WHERE meeting.createby_id = #{id}
+        address ,
+        createby_id ,
+        `user`.`name` as userName
+        FROM meeting ,`user`
+        <where>
+         meeting.createby_id = `user`.id
+        <if test="id != null and id!=0">
+            and  meeting.createby_id = #{id}
+        </if>
+        </where>
+    </select>
+
+
+    <resultMap id="allInvitationMap" type="com.meeting.pojo.Invitation">
+        <id property="id" column="invitationId"/>
+        <result property="initTime" column="init_time"/>
+        <collection property="toAttendUser" ofType="com.meeting.pojo.UserInfo">
+            <id property="id" column="userId"/>
+            <result property="name" column="userName"/>
+            <result property="url" column="userImage"/>
+        </collection>
+
+    </resultMap>
+    <select id="queryAllInvitation" resultMap="allInvitationMap">
+        SELECT
+        invitation.id as invitationId,
+        init_time,
+        `user`.id as userId,
+        `user`.`name` as userName,
+        `user`.phone ,
+        `user`.sex ,
+        `user`.url as userImage ,
+        `user`.`password`
+        FROM  invitation ,
+        `user` , meeting
+        WHERE invitation.user_id = `user`.id
+        AND meeting.id = invitation.meeting_id
+        AND meeting.id = #{meetingId}
     </select>
 
 </mapper>
