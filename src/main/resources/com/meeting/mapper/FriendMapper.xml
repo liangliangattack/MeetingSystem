@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meeting.mapper.FriendMapper">
+
+    <resultMap id="friendMap" type="com.meeting.pojo.Friend">
+        <result property="friendId" column="friend_id" />
+        <result property="userId" column="id" />
+        <association property="friendUser" javaType="com.meeting.pojo.UserInfo">
+            <id property="id" column="id" />
+            <result property="name" column="name"/>
+            <result property="phone" column="phone"/>
+            <result property="sex" column="sex"/>
+            <result property="url" column="url"/>
+        </association>
+    </resultMap>
+
+    <select id="queryAllFriend" resultMap="friendMap">
+        SELECT id,
+            name ,
+            phone,
+            sex ,
+            url
+        from  `user`
+        WHERE id in (SELECT friend_id from friend WHERE user_id = #{id})
+    </select>
+</mapper>
