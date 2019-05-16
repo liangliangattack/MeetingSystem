@@ -11,6 +11,7 @@
             <result property="phone" column="phone"/>
             <result property="sex" column="sex"/>
             <result property="url" column="url"/>
+            <result property="password" column="password"/>
         </association>
     </resultMap>
 
@@ -19,7 +20,8 @@
             name ,
             phone,
             sex ,
-            url
+            url ,
+            password
         from  `user`
         WHERE id in (SELECT friend_id from friend WHERE user_id = #{id})
     </select>

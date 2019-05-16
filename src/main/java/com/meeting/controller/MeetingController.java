@@ -1,4 +1,15 @@
 package com.meeting.controller;
 
-public class MeetingController {
-}
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import java.util.List;
+
+//@Controller
+//public class MeetingController {
+//
+//    @Autowired
+//    private MeetingService meetingService;
+//
+//    public List<>
+//}

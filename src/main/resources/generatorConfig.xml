@@ -15,9 +15,9 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/appinfodb?useSSL=false"
+                connectionURL="jdbc:mysql://localhost:3306/mobilemeeting?useSSL=false"
                 userId="root"
-                password="root">
+                password="123456">
         </jdbcConnection>
 
         <javaTypeResolver >
@@ -41,7 +41,7 @@
         </javaClientGenerator>
 
 <!--        配置哪些表来生成-->
-        <table tableName="xxx" domainObjectName="xxx"
+        <table tableName="xxxx" domainObjectName="xxxx"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"

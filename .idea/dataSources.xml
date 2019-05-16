@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="appinfodb" uuid="5ff2bafb-69a7-4ca3-8319-efb864d5bf30">
+    <data-source source="LOCAL" name="mobilemeeting@localhost" uuid="3ee942ef-306c-4c7a-a5b6-5ca8aaa7d878">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:3306/appinfodb</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/mobilemeeting</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />
