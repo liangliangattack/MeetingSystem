@@ -16,8 +16,14 @@
     </resultMap>
 
     <select id="queryAllFriend" resultMap="friendMap">
-        SELECT friends.id as friendsKey,friends.friend_id as friendsId,friends.user_id as userId,
-        user.name as friendsName,user.phone as friendsPhone,user.sex as friendsSex,user.url as friendsUrl,user.password as friendsPwd
+        SELECT friends.id as friendsKey,
+        friends.friend_id as friendsId,
+        friends.user_id as userId,
+        user.name as friendsName,
+        user.phone as friendsPhone,
+        user.sex as friendsSex,
+        user.url as friendsUrl,
+        user.password as friendsPwd
         from `user` as user,friend as friends
         WHERE `user`.id=friends.friend_id
         and friends.user_id=#{id}
