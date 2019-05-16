@@ -7,7 +7,6 @@ public class Friend {
 
     private int userId;
 
-
     public int getUserId() {
         return userId;
     }

@@ -2,4 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meeting.mapper.MeetingMapper">
 
+    <select id="">
+        SELECT meeting_title ,
+        meeting_content ,
+        create_time ,
+        ime ,
+        path ,
+        address
+        FROM meeting
+        WHERE meeting.createby_id = #{id}
+    </select>
+
 </mapper>
