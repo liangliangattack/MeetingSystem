@@ -5,11 +5,8 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-//@Controller
-//public class MeetingController {
-//
-//    @Autowired
-//    private MeetingService meetingService;
-//
-//    public List<>
-//}
+@Controller
+public class MeetingController {
+
+
+}
