@@ -22,7 +22,7 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public List<UserInfo> queryAllInvitation(int id) {
+    public List<Invitation> queryAllInvitation(int id) {
         return meetingMapper.queryAllInvitation(id);
     }
 }

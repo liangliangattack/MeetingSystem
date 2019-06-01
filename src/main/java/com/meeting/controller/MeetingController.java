@@ -34,8 +34,8 @@ public class MeetingController {
 
     @RequestMapping("/queryAllInvitation/{id}")
     @ResponseBody
-    public List<UserInfo> queryAllInvitation(@PathVariable("id") int id){
-        List<UserInfo> invitations = meetingService.queryAllInvitation(id);
+    public List<Invitation> queryAllInvitation(@PathVariable("id") int id){
+        List<Invitation> invitations = meetingService.queryAllInvitation(id);
         LOGGER.warn("meeting",invitations);
 
 //        List<Invitation> i = new ArrayList<UserInfo>();

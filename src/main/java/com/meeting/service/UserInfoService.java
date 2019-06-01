@@ -16,4 +16,6 @@ public interface UserInfoService {
     List<UserInfo> queryUser();
 
     boolean login(Map<String, Object> userDto);
+
+    boolean register(UserInfo userDto);
 }

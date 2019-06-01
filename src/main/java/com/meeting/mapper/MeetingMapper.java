@@ -10,5 +10,5 @@ import java.util.List;
 public interface MeetingMapper {
     List<Meeting> queryAllMeetings(@Param("id") int id);
 
-    List<UserInfo> queryAllInvitation(@Param("meetingId") int id);
+    List<Invitation> queryAllInvitation(@Param("meetingId") int id);
 }

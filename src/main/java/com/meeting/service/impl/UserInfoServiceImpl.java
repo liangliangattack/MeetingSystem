@@ -36,5 +36,13 @@ public class UserInfoServiceImpl implements UserInfoService {
        return false;
     }
 
+    @Override
+    public boolean register(UserInfo userDto) {
+        if (userInfoMapper.insertUser(userDto)>0)
+            return true;
+        else
+            return false;
+    }
+
 
 }

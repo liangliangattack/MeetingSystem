@@ -5,4 +5,7 @@
           select  id,name,phone,sex,url,password
           from user
       </select>
+      <insert id="insertUser">
+          insert into user(phone,name,password) values(#{phone},#{name},#{password})
+      </insert>
 </mapper>

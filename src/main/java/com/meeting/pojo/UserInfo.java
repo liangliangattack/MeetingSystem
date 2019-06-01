@@ -13,10 +13,7 @@ public class UserInfo {
     private String url;
     private String password;
 
-    public UserInfo(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+
 
     public String getPassword() {
         return password;

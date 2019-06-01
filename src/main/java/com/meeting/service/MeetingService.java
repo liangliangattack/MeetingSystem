@@ -9,5 +9,5 @@ import java.util.List;
 public interface MeetingService {
     List<Meeting> queryAllMeetings(int id);
 
-    List<UserInfo> queryAllInvitation(int id);
+    List<Invitation> queryAllInvitation(int id);
 }
