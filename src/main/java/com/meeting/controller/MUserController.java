@@ -41,7 +41,7 @@ public class MUserController {
         return map;
     }
     @RequestMapping(value = "/register")
-    public Map<String,Object> register(@RequestBody UserInfo userDto){
+    public Map<String,Object> register(UserInfo userDto){
         Map<String,Object> map = new HashMap<>();
         if (userInfoService.register(userDto)){
             //注册成功

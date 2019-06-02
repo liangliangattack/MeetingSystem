@@ -27,4 +27,11 @@
         WHERE `user`.id=friends.friend_id
         and friends.user_id=#{id}
     </select>
+
+    <insert id="insertFrind">
+        INSERT into friend(user_id,friend_id) VALUES(#{userId},#{friendUser.id})
+    </insert>
+    <delete id="deleteFriend">
+        delete from friend where user_id = #{userId} and friend_id = #{friendUser.id}
+    </delete>
 </mapper>
