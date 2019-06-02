@@ -20,12 +20,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class MUserController {
+
     @Autowired
     private UserInfoService userInfoService;
+
+
     @RequestMapping("/queryUser")
     public List<UserInfo> queryUser(){
         return userInfoService.queryUser();
     }
+
+
     @RequestMapping(value = "/login")
     public Map<String,Object> login(@RequestBody Map<String,Object> userDto){
         Map<String,Object> map = new HashMap<>();
@@ -40,8 +45,9 @@ public class MUserController {
         }
         return map;
     }
+
     @RequestMapping(value = "/register")
-    public Map<String,Object> register(@RequestBody UserInfo userDto){
+    public Map<String,Object> register(UserInfo userDto){
         Map<String,Object> map = new HashMap<>();
         if (userInfoService.register(userDto)){
             //注册成功

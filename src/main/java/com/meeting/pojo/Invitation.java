@@ -9,6 +9,13 @@ public class Invitation {
     private List<UserInfo> toAttendUser;
     private Date initTime;
 
+    public Invitation() {
+    }
+
+    public Invitation(Integer id, Date initTime) {
+        this.id = id;
+        this.initTime = initTime;
+    }
 
     @Override
     public String toString() {

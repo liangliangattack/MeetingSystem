@@ -24,10 +24,19 @@ public class MeetingController {
     @Autowired
     private MeetingService meetingService;
 
-    @RequestMapping("/queryAllMeetings/{id}")
+    @RequestMapping("/queryAllMeetings/{id}/{meetingId}")
     @ResponseBody
-    public List<Meeting> queryAllMeetings(@PathVariable("id") int id){
-        List<Meeting> meetings = meetingService.queryAllMeetings(id);
+    public List<Meeting> queryAllMeetings(@PathVariable("id") int id,
+                                          @PathVariable("meetingId") int meetingId){
+        List<Meeting> meetings = meetingService.queryAllMeetings(id,meetingId);
+
+        return meetings;
+    }
+
+    @RequestMapping("/queryAllSimpleMeetings/{id}")
+    @ResponseBody
+    public List<Meeting> queryAllSimpleMeetings(@PathVariable("id") int id){
+        List<Meeting> meetings = meetingService.queryAllSimpleMeetings(id);
 
         return meetings;
     }
@@ -37,15 +46,6 @@ public class MeetingController {
     public List<Invitation> queryAllInvitation(@PathVariable("id") int id){
         List<Invitation> invitations = meetingService.queryAllInvitation(id);
         LOGGER.warn("meeting",invitations);
-
-//        List<Invitation> i = new ArrayList<UserInfo>();
-//        i.add(new Invitation(1,new Date()));
-//
-//        List<UserInfo> user = new ArrayList<>();
-//        user.add(new UserInfo(1,"xiao"));
-
-//        i = user;
-
         return invitations;
     }
 

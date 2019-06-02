@@ -15,16 +15,8 @@
             <id property="id" column="createby_id" />
             <result property="name" column="userName"/>
         </association>
-
-<!--        private String meetingTitle;-->
-<!--        private String meetingContent;-->
-<!--        private Date createTime;-->
-<!--        private UserInfo createByUser;-->
-<!--        private String time;-->
-<!--        private String path;-->
-<!--        private String address;-->
-
     </resultMap>
+
     <select id="queryAllMeetings" resultMap="AllMeetingMap">
         SELECT meeting.id as meetingId,
         meeting_title ,
@@ -35,6 +27,37 @@
         address ,
         createby_id ,
         `user`.`name` as userName
+        FROM meeting ,`user`
+        <where>
+         meeting.createby_id = `user`.id
+        <if test="id != null and id!=0">
+            and  meeting.createby_id = #{id}
+        </if>
+        <if test="meetingId != null and meetingId!=0">
+            and  meeting.id = #{meetingId}
+        </if>
+        </where>
+    </select>
+
+<!--    查询列表简单信息-->
+    <resultMap id="AllSimpleMeetingMap" type="com.meeting.pojo.Meeting">
+       <id property="id" column="meetingId"/>
+        <result property="meetingTitle" column="meeting_title"/>
+        <result property="meetingContent" column="meeting_content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="time" column="time"/>
+        <result property="path" column="path"/>
+        <result property="address" column="address"/>
+    </resultMap>
+
+    <select id="queryAllSimpleMeetings" resultMap="AllSimpleMeetingMap">
+        SELECT meeting.id as meetingId,
+        meeting_title ,
+        meeting_content ,
+        create_time ,
+        time ,
+        path ,
+        address
         FROM meeting ,`user`
         <where>
          meeting.createby_id = `user`.id

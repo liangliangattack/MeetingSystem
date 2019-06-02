@@ -7,7 +7,9 @@ import com.meeting.pojo.UserInfo;
 import java.util.List;
 
 public interface MeetingService {
-    List<Meeting> queryAllMeetings(int id);
+    List<Meeting> queryAllMeetings(int id,int meetingId);
 
     List<Invitation> queryAllInvitation(int id);
+
+    List<Meeting> queryAllSimpleMeetings(int id);
 }
