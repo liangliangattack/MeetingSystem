@@ -21,6 +21,7 @@ public class MFriendController {
     @Autowired
     private FriendService friendService;
 
+
     @RequestMapping("/getFriendList/{id}")
     public List<Friend> getFriendList(@PathVariable("id") Integer id){
         List<Friend> friends = friendService.queryAllFriend(id);
