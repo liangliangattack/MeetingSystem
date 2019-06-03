@@ -13,4 +13,8 @@ public interface MeetingMapper {
     List<Invitation> queryAllInvitation(@Param("meetingId") int id);
 
     List<Meeting> queryAllSimpleMeetings(@Param("id") int id);
+
+    List<Meeting> queryAllSimpleMeetings();
+
+    List<Meeting> queryAllInvitationMeetings(@Param("id") int id);
 }

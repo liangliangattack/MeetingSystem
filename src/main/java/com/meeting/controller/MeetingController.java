@@ -24,6 +24,12 @@ public class MeetingController {
     @Autowired
     private MeetingService meetingService;
 
+    /**
+     * 查询用户id创建的所有会议的某个meetingId的会议信息
+     * @param id
+     * @param meetingId
+     * @return
+     */
     @RequestMapping("/queryAllMeetings/{id}/{meetingId}")
     @ResponseBody
     public List<Meeting> queryAllMeetings(@PathVariable("id") int id,
@@ -33,10 +39,28 @@ public class MeetingController {
         return meetings;
     }
 
+    /**
+     * 查询id的会议
+     * @param id
+     * @return
+     */
     @RequestMapping("/queryAllSimpleMeetings/{id}")
     @ResponseBody
     public List<Meeting> queryAllSimpleMeetings(@PathVariable("id") int id){
         List<Meeting> meetings = meetingService.queryAllSimpleMeetings(id);
+
+        return meetings;
+    }
+
+    /**
+     * 查询
+     * @param id
+     * @return
+     */
+    @RequestMapping("/queryAllInvitationMeetings/{id}")
+    @ResponseBody
+    public List<Meeting> queryAllInvitationMeetings(@PathVariable("id") int id){
+        List<Meeting> meetings = meetingService.queryAllInvitationMeetings(id);
 
         return meetings;
     }

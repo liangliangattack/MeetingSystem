@@ -27,6 +27,11 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public List<Meeting> queryAllSimpleMeetings(int id) {
-        return meetingMapper.queryAllSimpleMeetings(id);
+            return meetingMapper.queryAllSimpleMeetings(id);
+    }
+
+    @Override
+    public List<Meeting> queryAllInvitationMeetings(int id) {
+        return meetingMapper.queryAllInvitationMeetings(id);
     }
 }

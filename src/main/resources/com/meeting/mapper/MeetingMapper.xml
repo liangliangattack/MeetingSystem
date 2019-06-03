@@ -67,6 +67,22 @@
         </where>
     </select>
 
+    <resultMap id="meetingIdMap" type="com.meeting.pojo.Meeting">
+        <id property="id" column="meetingId"/>
+    </resultMap>
+    <!--    查询用户参与的会议-->
+    <select id="queryAllInvitationMeetings" resultMap="meetingIdMap">
+        SELECT
+        meeting.`id` AS meetingId
+        FROM meeting , invitation
+        <where>
+            meeting.id = invitation.`meeting_id`
+            <if test="id != null and id != 0">
+                AND invitation.`user_id` = #{id};
+            </if>
+        </where>
+
+    </select>
 
     <resultMap id="allInvitationMap" type="com.meeting.pojo.Invitation">
         <id property="id" column="invitationId"/>
