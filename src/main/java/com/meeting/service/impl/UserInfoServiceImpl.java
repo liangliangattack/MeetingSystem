@@ -44,5 +44,11 @@ public class UserInfoServiceImpl implements UserInfoService {
             return false;
     }
 
+    @Override
+    public UserInfo queryUserByPhone(Map<String, Object> userDto) {
+        String phone = userDto.get("phone").toString();
+        return userInfoMapper.queryUserByPhone(phone);
+    }
+
 
 }

@@ -18,4 +18,6 @@ public interface UserInfoService {
     boolean login(Map<String, Object> userDto);
 
     boolean register(UserInfo userDto);
+
+    UserInfo queryUserByPhone(Map<String, Object> userDto);
 }

@@ -8,4 +8,9 @@
       <insert id="insertUser">
           insert into user(phone,name,password) values(#{phone},#{name},#{password})
       </insert>
+
+      <select id="queryUserByPhone" resultType="com.meeting.pojo.UserInfo">
+          select id,name,phone,sex,url,password
+          from user where phone = #{phone}
+      </select>
 </mapper>

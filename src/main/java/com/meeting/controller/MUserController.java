@@ -33,15 +33,18 @@ public class MUserController {
 
     @RequestMapping(value = "/login")
     public Map<String,Object> login(@RequestBody Map<String,Object> userDto){
+        UserInfo userInfo = userInfoService.queryUserByPhone(userDto);
         Map<String,Object> map = new HashMap<>();
         if (userInfoService.login(userDto)){
             //登陆成功
             map.put("status",200);
             map.put("msg","登陆成功");
+            map.put("userId",userInfo.getId());
         }
         else {
             map.put("status",400);
             map.put("msg", "登陆失败，用户名或密码不正确");
+            map.put("userId",0);
         }
         return map;
     }
