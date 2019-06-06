@@ -19,4 +19,13 @@ public class InvitationServiceImpl implements InvitationService {
         }
         return false;
     }
+
+    @Override
+    public boolean joinMeeting(int id, int meetingId) {
+        //影响的行数
+        if(invitationMapper.joinMeeting(id,meetingId) >= 1){
+            return true;
+        }
+        return false;
+    }
 }

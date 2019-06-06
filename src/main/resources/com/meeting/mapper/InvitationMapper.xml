@@ -8,4 +8,8 @@
         AND user_id = #{id}
     </delete>
 
+    <insert id="joinMeeting">
+        INSERT INTO invitation(meeting_id,user_id) VALUES(#{id},#{meetingId});
+    </insert>
+
 </mapper>

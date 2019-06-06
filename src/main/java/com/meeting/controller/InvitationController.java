@@ -37,21 +37,21 @@ public class InvitationController {
         return map;
     }
 
-//    @RequestMapping(value = "/joinMeeting/{id}/{meetingId}")
-//    public Map<String , String> joinMeeting(@PathVariable("id") int id,
-//                                            @PathVariable("meetingId") int meetingId){
-//        Map<String,String> map = new HashMap<>();
-//        if (invitationService.quitMeeting(id,meetingId)){
-//            //登陆成功
-//            map.put("status","200");
-//            map.put("msg","退出会议成功");
-//        }
-//        else {
-//            map.put("status","400");
-//            map.put("msg", "退出失败");
-//        }
-//        return map;
-//    }
+    @RequestMapping(value = "/joinMeeting/{id}/{meetingId}")
+    public Map<String , String> joinMeeting(@PathVariable("id") int id,
+                                            @PathVariable("meetingId") int meetingId){
+        Map<String,String> map = new HashMap<>();
+        if (invitationService.joinMeeting(id,meetingId)){
+            //登陆成功
+            map.put("status","200");
+            map.put("msg","加入会议成功");
+        }
+        else {
+            map.put("status","400");
+            map.put("msg", "加入失败");
+        }
+        return map;
+    }
 
 
 }
